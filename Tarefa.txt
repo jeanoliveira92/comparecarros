@@ -1,0 +1,75 @@
+Teste de Desenvolvimento
+
+Aplicativo "Compare Carros"
+
+Do que se trata: 
+	A ferramenta tem por objetivo comparar carros, utilizando a tabela fipe como referencia, Para isso, acesse o site
+	https://deividfortuna.github.io/fipe/
+	Na tela, o usuário pode acrescentar quantos veiculos quiser, e o sistema irá apresentar em forma de tabela sua comparação
+	dos campos e informar qual o mais barato
+	O usuário poderá salvar os veículos favoritos
+
+Avaliação
+Será Analisado: 
+- Organização do código, 
+- Criatividade, 
+- Tipos de metodologias apresentadas, 
+- Soluções para barreiras de conhecimentos encontradas
+
+Observações:
+- A tarefa esta dividida em duas Vertentes - Backend e Frontend
+	- Backend - Preferência java, mas pode ser feita em qualquer tecnologia ou plataforma
+	- Frontend - Preferência Angular (JS ou IO), mas pode ser feita em qualquer tecnologia ou plataforma
+- É obrigatório todas as funcionalidades
+- Não é obrigatório fazer os dois ambientes, será detalhado cada papel com a marcação: (<TIPO>)
+- Não é obrigatório fazer os desafios
+
+Requisito:
+- Publicar o código no github (responda este e-mail com o link)
+- (Frontend): Pode ser desenvolvido via mobile ou web application executando via nodejs
+- (Backend): Deve ser executado em um servidor de aplicação (apache tomcat, nodejs, LAMP, Plataforma SpringFramework)
+- Prazo: 4 dias após recebimento deste e-mail
+
+Funcionalidades: 
+	- (Frontend):
+		- Criar tela para informar os veículos
+		- Informar qual veículo é mais barato e mais caro
+		- O usuário deve informar:
+			- O tipo de veiculo (carro, moto, caminhão)
+			- A marca
+			- O Modelo
+			- O Ano
+		- O usuário terá a possibilidade de salvar os veiculos favoritos e usar como comparação
+		- Qualquer armazenamento de preferencia - cookies - sessão - web sql - firebase ou até mesmo em memória
+
+	- (Backend):
+		- Criar 4 endpoints:
+			- GET Listar Tipos de veículos
+			- GET Listar Marcas
+			- GET Modelos
+			- GET Anos
+			- GET Valor
+			- POST Comparar veículos (contendo um array com os parametros acima e retornando qual o mais barato e mais caro)
+			- POST Salvar veiculo favorito
+			- DELETE Remover veiculo favorito
+			- GET Listar veiculo favorito
+		* Todos os endpoints devem persistir os dados em 
+			qualquer armazenamento da preferencia - estruturado ou nosql
+		* Não é necessário autenticação
+		* Pode ser utilizado qualquer framework
+		* Deve ser RESTFUL
+	- Estrutura dos dados ao qual será persistido:
+		Valor: "R$ 91.047,00"
+		Marca: "VW - VolksWagen"
+		Modelo: "AMAROK High.CD 2.0 16V TDI 4x4 Dies. Aut"
+		AnoModelo: 2014
+		Combustivel: "Diesel"
+		CodigoFipe: "005340-6"
+		MesReferencia: "janeiro de 2020 "
+		TipoVeiculo: 1
+		SiglaCombustivel: "D"
+Desafios:
+	- Na persistência, o usuário poderá alterar os dados e atualizar mais tarde
+	- Comparar disponibilizar uma comparação ano a ano (informando qual é mais barato/caro por ano)
+	- (frontend) colocar a evolução do valor no gráfico
+	- (backend) pre atualizar todos os dados no banco de dados, assim não consultando mais no endpoint api (https://deividfortuna.github.io/fipe/)
