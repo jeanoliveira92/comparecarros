@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Aircnc" title="" src="https://raw.githubusercontent.com/jeanoliveira92/comparecarros/master/frontend/src/assets/logo.png" width="250px" />
+    <img alt="Compare Carros" title="" src="https://github.com/jeanoliveira92/comparecarros/blob/master/frontend/src/assets/logo.png" width="250px" />
 </h1>
 
 <p align="center">
