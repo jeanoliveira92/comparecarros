@@ -12,7 +12,7 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" src="https://raw.githubusercontent.com/jeanoliveira92/comparecarros/master/screenshot.png?raw=true" width="100%">
+  <img alt="Frontend" src="https://github.com/jeanoliveira92/comparecarros/blob/master/screenshot.png" width="100%">
 </p>
 
 ## :rocket: Tecnologias
