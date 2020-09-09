@@ -136,46 +136,63 @@ module.exports = {
 
     async salvarFavorito(req, res) {
         try {
-            const dados = req.body;
-
-            console.log(dados);
+            const {
+                valor,
+                marca,
+                modelo,
+                anoModelo,
+                combustivel,
+                codigoFipe,
+                mesReferencia,
+                tipoVeiculo,
+                siglaCombustivel } = req.body;
 
             // CRIA-SE UM USUARIO VIRTUALMENTE
             const veiculo = new Veiculo({
-                valor: "teste",
-                marca: "teste",
-                modelo: "teste",
-                anoModelo: 2000,
-                combustivel: "teste",
-                codigoFipe: "teste",
-                mesReferencia: "teste",
-                tipoVeiculo: 2000,
-                siglaCombustivel: "teste",
+                valor,
+                marca,
+                modelo,
+                anoModelo,
+                combustivel,
+                codigoFipe,
+                mesReferencia,
+                tipoVeiculo,
+                siglaCombustivel
             })
 
             // SE TUDO OCORRER BEM, USUARIO É SALVO NO BANCO DE DADOS
             await veiculo.save();
 
-            return res.status(200).send({ veiculo });
+            return res.status(200).send();
 
         } catch (error) {
             console.log(error)
             if (error.code === 11000)
-                error.message = "Veículo adicionado previamente";
+                error.message = "Veículo já favoritado";
             res.status(400).send(error.message);
         }
     },
 
     async deletarFavorito(req, res) {
-        const dados = req.body;
+        try {
+            const veiculo = await Veiculo.findOne({ codigoFipe: req.body.codigoFipe });
 
-        return res.status(200).send({ message: "" });
+            if (!veiculo)
+                throw new Error("Veículo não encontrado");
 
+            const status = await Veiculo.findByIdAndRemove(veiculo._id).exec();
+
+            console.log(status);
+
+            return res.status(200).send();
+        } catch (error) {
+            res.status(400).send(error.message);
+        }
     },
 
     async listarFavorito(req, res) {
-        const dados = req.body;
+        const data = await Veiculo.find({}).select(['-_id', '-createdAt', '-updatedAt', '-__v']);
 
-        return res.status(200).send({ message: "" });
+        return res.status(200).send({ data });
     },
 }

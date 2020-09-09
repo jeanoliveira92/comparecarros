@@ -20,4 +20,4 @@ const veiculoSchema = new Schema({
     timestamps: true
 });
 
-module.exports = model('carro', veiculoSchema);
+module.exports = model('veiculosFavoritos', veiculoSchema);
